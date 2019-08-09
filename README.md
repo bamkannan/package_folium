@@ -1,1 +1,3 @@
-# package_folium
+# _Folium_
+
+Referências do package _Folium_.
