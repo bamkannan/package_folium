@@ -23,7 +23,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_715de67830594acd9e6fb36c08cee2c4 {
+                #map_9e488ae770fc40a6ae767ad3f6ce17ea {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="https://rawcdn.githack.com/ljagis/leaflet-measure/2.1.7/dist/leaflet-measure.css"/>
     
                 <style>
-                    #float_image_8000b5f6f6484394acf7c09d90797a92 {
+                    #float_image_caeb4520f3144f69a1bbc4d965ad6f22 {
                         position:absolute;
                         bottom:5%;
                         left:85%;
@@ -50,10 +50,10 @@
 </head>
 <body>    
     
-            <div class="folium-map" id="map_715de67830594acd9e6fb36c08cee2c4" ></div>
+            <div class="folium-map" id="map_9e488ae770fc40a6ae767ad3f6ce17ea" ></div>
         
     
-            <img id="float_image_8000b5f6f6484394acf7c09d90797a92" alt="float_image"
+            <img id="float_image_caeb4520f3144f69a1bbc4d965ad6f22" alt="float_image"
                  src="https://media.licdn.com/mpr/mpr/shrinknp_100_100/AAEAAQAAAAAAAAlgAAAAJGE3OTA4YTdlLTkzZjUtNDFjYy1iZThlLWQ5OTNkYzlhNzM4OQ.jpg"
                  style="z-index: 999999">
             </img>
@@ -61,8 +61,8 @@
 </body>
 <script>    
     
-            var map_715de67830594acd9e6fb36c08cee2c4 = L.map(
-                "map_715de67830594acd9e6fb36c08cee2c4",
+            var map_9e488ae770fc40a6ae767ad3f6ce17ea = L.map(
+                "map_9e488ae770fc40a6ae767ad3f6ce17ea",
                 {
                     center: [-23.9619271, -46.3427499],
                     crs: L.CRS.EPSG3857,
@@ -76,20 +76,20 @@
 
         
     
-            var tile_layer_134082b3d4c24dd7b405f97b2f09b71d = L.tileLayer(
+            var tile_layer_9fc5fac59a0d4e00bce43e74c426ba28 = L.tileLayer(
                 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_715de67830594acd9e6fb36c08cee2c4);
+            ).addTo(map_9e488ae770fc40a6ae767ad3f6ce17ea);
         
     
-            var measure_control_d7b4cadc6a8f4df88c2c35f507848bcf = new L.Control.Measure(
+            var measure_control_9fca3332a4ed4fb78fe9c11c25fac687 = new L.Control.Measure(
                 {"position": "topright", "primaryAreaUnit": "sqmeters", "primaryLengthUnit": "meters", "secondaryAreaUnit": "acres", "secondaryLengthUnit": "miles"});
-            map_715de67830594acd9e6fb36c08cee2c4.addControl(measure_control_d7b4cadc6a8f4df88c2c35f507848bcf);
+            map_9e488ae770fc40a6ae767ad3f6ce17ea.addControl(measure_control_9fca3332a4ed4fb78fe9c11c25fac687);
 
         
     
             L.control.fullscreen(
                 {"forceSeparateButton": true, "position": "topleft", "title": "Clique para Maximizar", "titleCancel": "Mininizar"}
-            ).addTo(map_715de67830594acd9e6fb36c08cee2c4);
+            ).addTo(map_9e488ae770fc40a6ae767ad3f6ce17ea);
         
 </script>
