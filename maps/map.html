@@ -23,7 +23,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_fa8c1731755a492787ae23ab96795bdd {
+                #map_73db9087f7b14f4d95619db27d545bb3 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -35,13 +35,13 @@
 </head>
 <body>    
     
-            <div class="folium-map" id="map_fa8c1731755a492787ae23ab96795bdd" ></div>
+            <div class="folium-map" id="map_73db9087f7b14f4d95619db27d545bb3" ></div>
         
 </body>
 <script>    
     
-            var map_fa8c1731755a492787ae23ab96795bdd = L.map(
-                "map_fa8c1731755a492787ae23ab96795bdd",
+            var map_73db9087f7b14f4d95619db27d545bb3 = L.map(
+                "map_73db9087f7b14f4d95619db27d545bb3",
                 {
                     center: [-23.9619271, -46.3427499],
                     crs: L.CRS.EPSG3857,
@@ -55,31 +55,63 @@
 
         
     
-            var tile_layer_6fcfc9260a9b477eb0ca9b9923b1f785 = L.tileLayer(
+            var tile_layer_a262645f028b47d094d0ce49196fe23e = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {"attribution": "\u003ca href=\"https://www.esri.com \" target=\"blank\"\u003eESRI Satelite\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_73db9087f7b14f4d95619db27d545bb3);
+        
+    
+            var tile_layer_65e4c10f98af4874b39e0b210a1f9a78 = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}",
+                {"attribution": "\u003ca href=\"https://www.esri.com \" target=\"blank\"\u003eESRI Street\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_73db9087f7b14f4d95619db27d545bb3);
+        
+    
+            var tile_layer_1331a86b8473439caf2bd08cb405c3bf = L.tileLayer(
                 "https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
                 {"attribution": "\u003ca href=\"https://www.esri.com \" target=\"blank\"\u003eESRI Topo\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_fa8c1731755a492787ae23ab96795bdd);
+            ).addTo(map_73db9087f7b14f4d95619db27d545bb3);
         
     
-            var tile_layer_600fff1494d44892b350696d6991c534 = L.tileLayer(
-                "https://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{Z}/{Y}/{X}",
+            var tile_layer_93610e2e908e42b19689d3efeea89574 = L.tileLayer(
+                "https://services.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}",
                 {"attribution": "\u003ca href=\"https://www.esri.com \" target=\"blank\"\u003eESRI NatGeo\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_fa8c1731755a492787ae23ab96795bdd);
+            ).addTo(map_73db9087f7b14f4d95619db27d545bb3);
         
     
-            var layer_control_1d7a4bc43b214da998a2be642679325f = {
+            var tile_layer_cf3c2b5b57b1476292e30cdca4181de5 = L.tileLayer(
+                "https://server.arcgisonline.com/arcgis/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+                {"attribution": "\u003ca href=\"https://github.com/openplanetary/opm/wiki/OPM-Basemaps\" target=\"blank\"\u003eESRI World Dark Gray\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_73db9087f7b14f4d95619db27d545bb3);
+        
+    
+            var tile_layer_a2b99e222521422cb85b05e9655a4784 = L.tileLayer(
+                "https://server.arcgisonline.com/arcgis/rest/services/Specialty/DeLorme_World_Base_Map/MapServer/tile/{z}/{y}/{x}",
+                {"attribution": "\u003ca href=\"https://www.esri.com \" target=\"blank\"\u003eESRI DeLorme\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_73db9087f7b14f4d95619db27d545bb3);
+        
+    
+            var layer_control_bafaba0402974827b337e33b5dc6a3d4 = {
                 base_layers : {
-                    "ESRI Topo" : tile_layer_6fcfc9260a9b477eb0ca9b9923b1f785,
-                    "ESRI NatGeo" : tile_layer_600fff1494d44892b350696d6991c534,
+                    "ESRI Satelite" : tile_layer_a262645f028b47d094d0ce49196fe23e,
+                    "ESRI Street" : tile_layer_65e4c10f98af4874b39e0b210a1f9a78,
+                    "ESRI Topo" : tile_layer_1331a86b8473439caf2bd08cb405c3bf,
+                    "ESRI NatGeo" : tile_layer_93610e2e908e42b19689d3efeea89574,
+                    "ESRI World Dark Gray" : tile_layer_cf3c2b5b57b1476292e30cdca4181de5,
+                    "ESRI DeLorme" : tile_layer_a2b99e222521422cb85b05e9655a4784,
                 },
                 overlays :  {
                 },
             };
             L.control.layers(
-                layer_control_1d7a4bc43b214da998a2be642679325f.base_layers,
-                layer_control_1d7a4bc43b214da998a2be642679325f.overlays,
+                layer_control_bafaba0402974827b337e33b5dc6a3d4.base_layers,
+                layer_control_bafaba0402974827b337e33b5dc6a3d4.overlays,
                 {"autoZIndex": true, "collapsed": true, "position": "topright"}
-            ).addTo(map_fa8c1731755a492787ae23ab96795bdd);
-            tile_layer_600fff1494d44892b350696d6991c534.remove();
+            ).addTo(map_73db9087f7b14f4d95619db27d545bb3);
+            tile_layer_65e4c10f98af4874b39e0b210a1f9a78.remove();
+            tile_layer_1331a86b8473439caf2bd08cb405c3bf.remove();
+            tile_layer_93610e2e908e42b19689d3efeea89574.remove();
+            tile_layer_cf3c2b5b57b1476292e30cdca4181de5.remove();
+            tile_layer_a2b99e222521422cb85b05e9655a4784.remove();
         
 </script>
