@@ -13076,20 +13076,26 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing text_cell rendered celltag_header"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Package-Folium">Package <em>Folium</em><a class="anchor-link" href="#Package-Folium">¶</a></h1>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>O <a href="https://python-visualization.github.io/folium/index.html"><strong><em>Folium</em></strong></a> é um pacote que possibilita a criação de mapas <em>online</em>, facilitando a visualização dos dados manipulados no <em>Python</em> em um mapa que usa a biblioteca JavaScript <a href="https://leafletjs.com"><strong><em>Leaflet</em></strong></a>.</p>
 <p>A biblioteca possui vários conjuntos de blocos internos do OpenStreetMap, Mapbox e Stamen, além de suportar conjuntos de blocos customizados com as chaves da API Mapbox ou Cloudmade. <strong><em>Folium</em></strong> suporta sobreposições de imagem, vídeo, GeoJSON e TopoJSON.</p>
-<div class="alert alert-info">
-<b>INFORMAÇÃO</b><br>
+<div class="alert alert-warning">
+<b>OBSERVAÇÃO</b><br>
     Esse <i>post</i> tem a finalidade de mostrar os comandos básicos e me deixar com uma "cola" rápida para meu uso cotidiano.<br>
     Todas os códigos são exemplificativos e podem/devem ser alterados, indicando o nome dos arquivos e diretórios corretamente.
-</div><div class="alert alert-warning">
-<b>ALERTA</b><br>
+</div><div class="alert alert-info">
+<b>INFORMAÇÃO</b><br>
     <ol>
-    <li>É possível acessar esse <i>post</i> em formato <a href="https://github.com/michelmetran/package_folium/raw/master/docs/folium.html" target="_blank"><b>html</b></a>;</li>
-    <li>Diretamente por meio do <a href="https://github.com/michelmetran/package_folium" target="_blank"><b>repositório do GitHub</b></a>, onde está disponível o arquivo <b>.ipynb</b>;</li>
-    <li>Ou ainda, de maneira interativa, usando o <a href="https://mybinder.org/v2/gh/michelmetran/package_folium/master" target="_blank"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTA5IiBoZWlnaHQ9IjIwIj48bGluZWFyR3JhZGllbnQgaWQ9ImIiIHgyPSIwIiB5Mj0iMTAwJSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjYmJiIiBzdG9wLW9wYWNpdHk9Ii4xIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLW9wYWNpdHk9Ii4xIi8+PC9saW5lYXJHcmFkaWVudD48Y2xpcFBhdGggaWQ9ImEiPjxyZWN0IHdpZHRoPSIxMDkiIGhlaWdodD0iMjAiIHJ4PSIzIiBmaWxsPSIjZmZmIi8+PC9jbGlwUGF0aD48ZyBjbGlwLXBhdGg9InVybCgjYSkiPjxwYXRoIGZpbGw9IiM1NTUiIGQ9Ik0wIDBoNjR2MjBIMHoiLz48cGF0aCBmaWxsPSIjNTc5YWNhIiBkPSJNNjQgMGg0NXYyMEg2NHoiLz48cGF0aCBmaWxsPSJ1cmwoI2IpIiBkPSJNMCAwaDEwOXYyMEgweiIvPjwvZz48ZyBmaWxsPSIjZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iRGVqYVZ1IFNhbnMsVmVyZGFuYSxHZW5ldmEsc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMTAiPjxpbWFnZSB4PSI1IiB5PSIzIiB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHhsaW5rOmhyZWY9ImRhdGE6aW1hZ2UvcG5nO2Jhc2U2NCxpVkJPUncwS0dnb0FBQUFOU1VoRVVnQUFBRmtBQUFCWkNBTUFBQUJpMVhpZEFBQUI4bEJNVkVYLy8vOVhtc3JtWllIMW9sSlhtc3Ixb2xKWG1zcm1aWUgxb2xKWG1zcjFvbEpYbXNybVpZSDFvbEwxb2xKWG1zcjFvbEpYbXNybVpZSDFvbEwxb2xKWG1zcm1aWUgxb2xKWG1zcjFvbEwxb2xKWG1zcm1aWUgxb2xMMW9sSlhtc3JtWllIMW9sTDFvbEwwbkZmMW9sSlhtc3JtWllIMW9sSlhtc3E4ZFpiMW9sSlhtc3JtWllIMW9sSlhtc3BYbXNwWG1zcjFvbEwxb2xKWG1zcm1aWUgxb2xKWG1zcjFvbEwxb2xKWG1zcm1aWUgxb2xMMW9sTGVhSVZYbXNybVpZSDFvbEwxb2xMMW9sSlhtc3JtWllIMW9sTG5hMzFYbXNyMW9sSlhtc3Ixb2xKWG1zcm1aWUgxb2xMcW9WcjFvbEpYbXNyMW9sSlhtc3JtWllIMW9sTDFvbEtrZmFQb2JYdnZpR2FiZ2FkWG1zcVRoS3VvZktIbVo0RG9ibnIxb2xKWG1zcjFvbEpYbXNwWG1zcjFvbEpYbXNyZlo0VHVoV24xb2xMMW9sSlhtc3FCaTdYMW9sSlhtc3BabXNsYm1NaGJtc2RlbXNWZmw4Wmdtc05pbThKcGs4RjBtN1I0bTdGNW5MQjZqYmg3amJpRGlyT0VpYk9HbkthTWhxK1BuYUNWZzZxV2c2cWVnS2FmZjZXaG5wS29mS0d0bm9teGVaeTNub0c2ZFppK24zdkNjcFBEY3BQR24zYkxiNC9NYjQ3VWJJclZhNHJZb0dqZGFJYmVhSVhob1dIbVpZSG9iWHZwY0hqcWRIWHJlSExyb1Zyc2ZHL3VoR251aDJid2oySHhrMTd5bDF2em1sanptMWowbmxYMW9sTDNBSlhXQUFBQWJYUlNUbE1BRUJBUUh4OGdJQ0F1TGpBd01EdzlQVUJBUUVwUVVGQlhWMWhnWUdCa2NIQndjWGw4Z0lDQWdvaUlrSkNRbEppY25KMmdvS0NtcUsrd3NMQzR1c0RBd01qUDBORFExTmJXM056ZzRPRGk1KzN2OFBEdzgvVDA5UFgyOXZiMzkvZjUrZnI3Ky96OC9QejkvdjcremN6Q3hnQUFCQzVKUkVGVWVBSE4xdWwzazBVVUJ2Q2IxQ1RWcG1wYWl0QUdTTFNwU3VLQ0xXcGJUS05KRkdsY1NNQUZGNjNpVW1SY2NORzZnTGJ1eGtYVTY2SkFVZWYvOUxTcG1YbnlMcjNUNUFPL3J6bDV6ajEzN3AxMzZCSVN5NDRmS0pYdUdOL2QxOVBVZlllTzY3Wm5xdGYyS0gzM0lkMXBzWG9GZFczMHNQWjFzTXZzMkQwNjBBSHF3czRGSGVKb2pMWnFudzUzY21mdmcrWFI4bUMwT0VqdXhyWEVrWDV5ZGVWSkxWSWxWMGUxMFBYazVrN2RZZUh1N0NqMWorNDl1S2c3dUxVNjF0R0x3MWxxMjd1Z1FZbGNsSEM0Ymd2N1ZRK1RBeWo1WmMvVWpzUHZzMXNkNWNXcnlXT2J0dldUMkVQYTRydG5XVzNKa3BqZ2dFcGJPc1ByN0Y3RXlOZXd0cEJJc2xBN3A0M0hDc253b29YVEVjM1VtUG1DTm41bHJxVEp4eTZuUm1jYXZHWlZ0LzNEYTJwRDVOSHZzT0hKQ3JkYzFHMnIzRElUcFU3eWljN3cvN1J4bmpjMGt0NUdDNGRqaXYyU3ozRmIyaUVaZzQxL2Rkc0ZEb3l1WXJJa21GZWh6MEhSMnRoUGdRcU15UVliMk90QjBXeHNaM0JlRzMrd3BSYjF2emwyVVlCb2c4RmZHaHR0RktqdEFjbG5aWXJSbzlyeUc5dUcvRlpRVTRBRWc4WkU5TGpHTXpUbXFLWFBMbmxXVm5JbFFRVHZ4SmY4aXA3VmdqWmp5VlByancxdGU1b3RNN1JtUDd4bStzSzJHdjlJOEdpKytCUmJFa1I5RUJ3OHpSVWNLeHdwNzN4a2FMaXFRYitrR2R1SlROSEc3MnpjVzlMb0pncVF4cFAzL1RqLy9jM3lCMHRxemFtbDA1LytvckhMa3NWTys5NWtYNy83cWdKdm5qbHJmcjJHZ3N5eDBlb3k5dVB6TjVTUGQ4NmFYZ2dPc0VLVzJQcno3ZHUzVklEMy90enMvc1NSczJ3N292VkhLdGpyWDJwZDdaTWxUeEFZZkJBTDlqaUR3ZkxrcTU1VG03aWZoTWxUR1B5Q0FzN1JGUmhuNDdKbmxjQjlSTTVUOTdBU3VaWEljVk51VURJbmRwRGJkc2ZycXNPcHBlWGw1WStYVktkakZDVGgrekdhVnVqMGQ5enkwNVBQSzNRekJhbXhkd3RUQ3J6eWcvMlJ2ZjJFc3RVam9yZEd3YS9reDltU0pMcjhtTEx0Q1c4SEhHSmMyUjVoUzIxOUlpRjZQblR1c09xY01sNTdnbTBaOGthbktNQVFnMHFTeXVaZm43ekl0c2JHeU85UWxueFkwZUN1RDFYTDJ5cy9Nc3JRaGx0RTdVZzB1Rk96dWZKRkUyUHhCby9ZQXg4WFBQZER3V04wTXJEUllJWkYwbVNNS0NOSGdhSVZGb0JiTm9MSjd0RVFES3hHRjBrY0xRaW1vakNab3B2ME9rTk95V0NDZzlYTVZBaTdBUkp6UWRNMlFVaDBnbUJvempjM1NrZzZkU0JScURHWVNVT3U2NlpnK0kyZk5acy9NMy9mL0dybC9YbnlGMUd3M1ZLQ2V6MFBONUlVZkZMcXZnVU40QzBxTnFZczVZaFBMK2FWWllERTRJcFVrNTdvU0ZuSm00RnlDcXFPRTBqaFkyU015TEZvbzU2enlvNmJlY09TNVVWRGRqN1ZpaDB6cCt0Y01od1JwQmVMeXF0SWpsSktBSVpTYkk4U0dTRjNrMHBBM21SNXRIdXdQRm9hN043cmVvcTJicUNzQWsxSHFDdTV1dkkxbjZKdVJYSStTMU1jbzU0WW1ZVHdjbjZBZWljK2tzc1hpOFhwWEM0VjN0Ny9BRHVUTkthUUpkU2NBQUFBQUVsRlRrU3VRbUNDIi8+IDx0ZXh0IHg9IjQxNSIgeT0iMTUwIiBmaWxsPSIjMDEwMTAxIiBmaWxsLW9wYWNpdHk9Ii4zIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgdGV4dExlbmd0aD0iMzcwIj5sYXVuY2g8L3RleHQ+PHRleHQgeD0iNDE1IiB5PSIxNDAiIHRyYW5zZm9ybT0ic2NhbGUoLjEpIiB0ZXh0TGVuZ3RoPSIzNzAiPmxhdW5jaDwvdGV4dD48dGV4dCB4PSI4NTUiIHk9IjE1MCIgZmlsbD0iIzAxMDEwMSIgZmlsbC1vcGFjaXR5PSIuMyIgdHJhbnNmb3JtPSJzY2FsZSguMSkiIHRleHRMZW5ndGg9IjM1MCI+YmluZGVyPC90ZXh0Pjx0ZXh0IHg9Ijg1NSIgeT0iMTQwIiB0cmFuc2Zvcm09InNjYWxlKC4xKSIgdGV4dExlbmd0aD0iMzUwIj5iaW5kZXI8L3RleHQ+PC9nPiA8L3N2Zz4="></a></li>
+    <li>É possível acessar esse <i>post</i> em formato <a href="https://rawcdn.githack.com/michelmetran/package_folium/master/docs/folium.html" target="_blank"><i><b>html</b></i></a>, que possibilita ter uma visualização rápida do código;</li>
+    <li>Diretamente por meio do <a href="https://github.com/michelmetran/package_folium" target="_blank"><b>repositório</b></a>, onde está disponível este arquivo <i><b>.ipynb</b></i>, que permite fazer edições no código;</li>
+    <li>Ou ainda, de maneira interativa, usando o <a href="https://mybinder.org/v2/gh/michelmetran/package_folium/master" target="_blank"><i><b>MyBinder</b></i></a>, que possibilita rodar e editar o código sem a necessidade de instalar nada.</li>
     </ol>
 </div>
 </div>
@@ -13144,8 +13150,8 @@ div#notebook {
     <span class="n">max_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>                          <span class="c1"># Define o zoom do início</span>
     <span class="n">control_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>                     <span class="c1"># Define se terá barra de escala</span>
-    <span class="c1">#width=width,</span>
-    <span class="c1">#height=height,</span>
+    <span class="c1">#width=400,</span>
+    <span class="c1">#height=1500,</span>
 <span class="p">)</span>
 </pre></div>
 
@@ -13450,7 +13456,7 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 <span class="p">)</span>
 
 <span class="c1"># Importa bibliotecas e lê o json</span>
-<span class="n">shp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">'data'</span><span class="p">,</span> <span class="s1">'trajetos.json'</span><span class="p">)</span>
+<span class="n">shp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">'data'</span><span class="p">,</span> <span class="s1">'trajetos.geojson'</span><span class="p">)</span>
 
 <span class="c1"># Adiciona as diferentes empresas com gráficos no popup</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">GeoJson</span><span class="p">(</span><span class="n">shp</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Trajetos'</span><span class="p">)</span>
@@ -13484,7 +13490,7 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 <span class="n">json_url</span> <span class="o">=</span> <span class="s1">'https://raw.githubusercontent.com/datasets/geo-boundaries-world-110m/master/countries.geojson'</span>
 
 <span class="c1"># Adiciona GeoJson</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">GeoJson</span><span class="p">(</span><span class="n">shp</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Trajetos'</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">GeoJson</span><span class="p">(</span><span class="n">shp</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Trajetos'</span><span class="p">)</span>
 
 <span class="c1"># Folium Object</span>
 <span class="n">folium</span><span class="o">.</span><span class="n">Choropleth</span><span class="p">(</span>
@@ -13493,9 +13499,6 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
     <span class="n">fill_opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
     <span class="n">line_opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
     <span class="n">legend_name</span><span class="o">=</span><span class="s1">'Limites'</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-
-<span class="c1"># Ordena Layers</span>
-<span class="n">m</span><span class="o">.</span><span class="n">keep_in_front</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 
 <span class="c1"># Display Map</span>
 <span class="n">m</span>
@@ -13530,6 +13533,7 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 
 <span class="n">shp</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">GeoJson</span><span class="p">(</span><span class="n">gjson</span><span class="p">)</span>
 <span class="n">m</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">shp</span><span class="p">)</span>
+<span class="n">a</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="n">m</span><span class="o">.</span><span class="n">fit_bounds</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_bounds</span><span class="p">())</span>
 
 <span class="c1"># Plota Mapa</span>
@@ -13929,9 +13933,6 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
                          <span class="n">name</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span>
                          <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 
-    <span class="c1">#  Add Legend</span>
-    <span class="n">folium</span><span class="o">.</span><span class="n">LayerControl</span><span class="p">()</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-
     <span class="c1"># Results</span>
     <span class="k">return</span> <span class="n">m</span>
 </pre></div>
@@ -13947,7 +13948,8 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">create_map_multitiles</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9619271</span><span class="p">,</span> <span class="o">-</span><span class="mf">46.3427499</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="c1">#folium.LayerControl('topright', collapsed=False).add_to(m)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">LayerControl</span><span class="p">()</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
 <span class="n">m</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'maps/map.html'</span><span class="p">)</span>
 <span class="n">m</span>
 </pre></div>
@@ -13980,26 +13982,25 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 <span class="kn">from</span> <span class="nn">folium.plugins</span> <span class="kn">import</span> <span class="n">FloatImage</span>
 
 <span class="c1"># Cria o mapa</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="o">-</span><span class="mi">50</span><span class="p">])</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9</span><span class="p">,</span><span class="o">-</span><span class="mf">46.7</span><span class="p">])</span>
 
 <span class="c1"># Dados do Logo</span>
 <span class="c1">#src = 'https://raw.githubusercontent.com/michelmetran/michelmetran.github.io/master/img/mm.png'</span>
 <span class="n">src</span> <span class="o">=</span> <span class="s1">'https://avatars3.githubusercontent.com/u/10374538?v=4&amp;s=60'</span>
 <span class="c1">#src = 'https://i.imgur.com/XRdd9RL.png'</span>
+
 <span class="n">site</span> <span class="o">=</span> <span class="s1">'https://michelmetran.github.io'</span>
 <span class="n">alt</span> <span class="o">=</span> <span class="s1">'MichelMetran'</span>
-<span class="n">size</span> <span class="o">=</span> <span class="s1">'60px'</span>
-
-<span class="c1"># Works, but huge!</span>
-<span class="n">FloatImage</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">1.3</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">size</span> <span class="o">=</span> <span class="s1">'30px'</span>
 
 <span class="c1"># HTML</span>
-<span class="n">html</span> <span class="o">=</span> <span class="s2">"&lt;a href=</span><span class="si">{}</span><span class="s2">&gt;&lt;img alt=</span><span class="si">{}</span><span class="s2"> src=</span><span class="si">{}</span><span class="s2"> width=</span><span class="si">{}</span><span class="s2">&gt;&lt;/a&gt;"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">site</span><span class="p">,</span> <span class="n">alt</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">size</span><span class="p">)</span>
-<span class="n">html</span> <span class="o">=</span> <span class="s2">"&lt;img src=</span><span class="si">{}</span><span class="s2">&gt;"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
-<span class="n">html</span> <span class="o">=</span> <span class="s1">'&lt;img src=https://michelmetran.github.io/img/mm.png width=40px&gt;'</span>
+<span class="c1">#html = "&lt;a href={}&gt;&lt;img alt={} src={} width={}&gt;&lt;/a&gt;".format(site, alt, src, size)</span>
+<span class="c1">#html = "&lt;img src={}&gt;".format(src)</span>
+<span class="c1">#html = '&lt;img src=https://michelmetran.github.io/img/mm.png width=40px&gt;'</span>
 
 <span class="c1"># Not Work</span>
 <span class="c1">#FloatImage(html, bottom=40, left=10).add_to(m)</span>
+<span class="n">FloatImage</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">1.3</span><span class="p">,</span> <span class="n">left</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>           <span class="c1"># Works, but huge!</span>
 
 <span class="c1"># Imagem Encode e Decode</span>
 <span class="c1">#png = base64.b64encode(requests.get(src).content).decode()</span>
@@ -14007,7 +14008,7 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 <span class="c1">#FloatImage(png, bottom=40, left=1).add_to(m)</span>
 
 <span class="c1"># Print HTML</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="c1">#print(html)</span>
 
 <span class="n">m</span>
 </pre></div>
@@ -14044,7 +14045,7 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Adiciona-legenda">Adiciona legenda<a class="anchor-link" href="#Adiciona-legenda">¶</a></h2>
+<h2 id="Ordena-Layers">Ordena Layers<a class="anchor-link" href="#Ordena-Layers">¶</a></h2>
 </div>
 </div>
 </div>
@@ -14053,7 +14054,95 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">folium</span><span class="o">.</span><span class="n">LayerControl</span><span class="p">(</span><span class="s1">'topright'</span><span class="p">,</span> <span class="n">collapsed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Ordena Layers</span>
+<span class="n">m</span><span class="o">.</span><span class="n">keep_in_front</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Tooltip"><em>Tooltip</em><a class="anchor-link" href="#Tooltip">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tooltip</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">GeoJsonTooltip</span><span class="p">(</span>
+    <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s2">"SA12019_V1_00"</span><span class="p">,</span> <span class="s2">"category"</span><span class="p">],</span>
+    <span class="n">aliases</span><span class="o">=</span><span class="p">[</span><span class="s2">"SA1 code"</span><span class="p">,</span> <span class="s2">"category"</span><span class="p">],</span>
+    <span class="n">sticky</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">opacity</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+    <span class="n">direction</span><span class="o">=</span><span class="s2">"bottom"</span><span class="p">),</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="On-MouseOver">On MouseOver<a class="anchor-link" href="#On-MouseOver">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">highlight_function</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">{</span><span class="s2">"weight"</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Adiciona-Legenda">Adiciona Legenda<a class="anchor-link" href="#Adiciona-Legenda">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Adiciona-Layer-Control">Adiciona <em>Layer Control</em><a class="anchor-link" href="#Adiciona-Layer-Control">¶</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create Map</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9619271</span><span class="p">,</span><span class="o">-</span><span class="mf">46.3427499</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Add Layer Control</span>
+<span class="c1">#folium.LayerControl().add_to(m)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">LayerControl</span><span class="p">(</span><span class="s1">'topright'</span><span class="p">,</span> <span class="n">collapsed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
 <span class="n">m</span>
 </pre></div>
 
@@ -14073,7 +14162,10 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="o">.</span><span class="n">ClickForMarker</span><span class="p">(</span><span class="n">popup</span><span class="o">=</span><span class="s1">'Waypoint'</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create Map</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9619271</span><span class="p">,</span><span class="o">-</span><span class="mf">46.3427499</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="o">.</span><span class="n">ClickForMarker</span><span class="p">(</span><span class="n">popup</span><span class="o">=</span><span class="s1">'Waypoint'</span><span class="p">))</span>
 <span class="n">m</span>
 </pre></div>
 
@@ -14093,7 +14185,10 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="o">.</span><span class="n">LatLngPopup</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create Map</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9619271</span><span class="p">,</span><span class="o">-</span><span class="mf">46.3427499</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="o">.</span><span class="n">LatLngPopup</span><span class="p">())</span>
 <span class="n">m</span>
 </pre></div>
 
@@ -14115,7 +14210,8 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">folium.plugins</span> <span class="kn">import</span> <span class="n">MousePosition</span>
 
-<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">()</span>
+<span class="c1"># Create Map</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9619271</span><span class="p">,</span><span class="o">-</span><span class="mf">46.3427499</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 
 <span class="c1">#MousePosition().add_to(m)</span>
 
@@ -14151,7 +14247,10 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">fit_bounds</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_bounds</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create Map</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9619271</span><span class="p">,</span><span class="o">-</span><span class="mf">46.3427499</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">fit_bounds</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_bounds</span><span class="p">())</span>
 <span class="n">m</span>
 </pre></div>
 
@@ -14171,11 +14270,8 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Cria o mapa</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
-    <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9619271</span><span class="p">,</span><span class="o">-</span><span class="mf">46.3427499</span><span class="p">],</span>
-    <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span>
-<span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create Map</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9619271</span><span class="p">,</span><span class="o">-</span><span class="mf">46.3427499</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 
 <span class="c1"># Maximiza/Minimiza o mapa</span>
 <span class="kn">from</span> <span class="nn">folium</span> <span class="kn">import</span> <span class="n">plugins</span>
@@ -14204,11 +14300,8 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Cria o mapa</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
-    <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9619271</span><span class="p">,</span><span class="o">-</span><span class="mf">46.3427499</span><span class="p">],</span>
-    <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span>
-<span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create Map</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9619271</span><span class="p">,</span><span class="o">-</span><span class="mf">46.3427499</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 
 <span class="c1"># Adiciona ferramenta de medição</span>
 <span class="kn">from</span> <span class="nn">folium.plugins</span> <span class="kn">import</span> <span class="n">MeasureControl</span>
@@ -14242,11 +14335,8 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># HeatMap https://minerandodados.com.br/visualizando-mapas-interativos-com-python/</span>
 <span class="kn">from</span> <span class="nn">folium.plugins</span> <span class="kn">import</span> <span class="n">HeatMap</span>
 
-<span class="c1"># Cria o mapa</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
-    <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9619271</span><span class="p">,</span><span class="o">-</span><span class="mf">46.3427499</span><span class="p">],</span>
-    <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span>
-<span class="p">)</span>
+<span class="c1"># Create Map</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9619271</span><span class="p">,</span><span class="o">-</span><span class="mf">46.3427499</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 
 <span class="c1"># Lendo e filtrando dados</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'data/empresas.xz'</span><span class="p">)</span>
@@ -14363,7 +14453,7 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Salvar-o-mapa-em-HTML">Salvar o mapa em HTML<a class="anchor-link" href="#Salvar-o-mapa-em-HTML">¶</a></h1><p>A grande vantagem é salvar o mapa como um arquivo <em>.html</em>, bastante possivel para dar um <em>embed</em> em qualquer página. Para salvar o resultado em um dado local, criei uma função que pode contribuir, avaliando se determinadas pastas estão criadas e, em caso negativo, cria as mesmas. Em uma destas pastas que ficará salvo o arquivo <em>.html</em> criado</p>
+<h1 id="Editando-o-HTML">Editando o HTML<a class="anchor-link" href="#Editando-o-HTML">¶</a></h1><p>É possível alterar o <em>.html</em> gerado, acrescentando customizações diretamente no arquivo.</p>
 
 </div>
 </div>
@@ -14373,24 +14463,19 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># %load '../codes/files/create_folders.py'</span>
-<span class="k">def</span> <span class="nf">create_folders</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">folders</span><span class="o">=</span><span class="p">[</span><span class="s1">'data'</span><span class="p">,</span> <span class="s1">'docs'</span><span class="p">,</span> <span class="s1">'maps'</span><span class="p">]):</span>
-    <span class="sd">"""</span>
-<span class="sd">    :param folders: Name os folders that you want create; E.g.: ['folder1', 'folder2']</span>
-<span class="sd">    :return: Create directories if not exist</span>
-<span class="sd">    """</span>
-    <span class="c1"># Import Packages</span>
-    <span class="kn">import</span> <span class="nn">os</span>
-    <span class="k">for</span> <span class="n">folder</span> <span class="ow">in</span> <span class="n">folders</span><span class="p">:</span>
-        <span class="n">directory</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">folder</span><span class="p">)</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
-                <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">'Directory "'</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="s1">'" created!'</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">'Directory "'</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="s1">'" already exists...'</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
-        <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">'Error: Creating directory "'</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="s1">'" fail.'</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">legend_html</span> <span class="o">=</span> <span class="s1">'''</span>
+<span class="s1">&lt;div style="position: fixed; bottom: 50px; left: 50px; width: 100px; height: 90px; border:2px solid grey; z-index:9999; font-size:14px;"&gt;</span>
+<span class="s1">&amp;nbsp;</span>
+<span class="s1">Cool Legend &lt;br&gt;&amp;nbsp;</span>
+<span class="s1">East &amp;nbsp;</span>
+<span class="s1">&lt;i class=”fa fa-map-marker fa-2x" style="color:green”&gt;&lt;/i&gt;&lt;br&gt; &amp;nbsp;</span>
+<span class="s1">West &amp;nbsp;</span>
+<span class="s1">&lt;i class="fa fa-map-marker fa-2x" style="color:red"&gt;&lt;/i&gt;</span>
+<span class="s1">&lt;/div&gt;</span>
+<span class="s1">'''</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">get_root</span><span class="p">()</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="n">legend_html</span><span class="p">))</span>
+<span class="n">m</span>
 </pre></div>
 
     </div>
@@ -14403,7 +14488,60 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">create_folders</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="s1">'''&lt;meta http-equiv="content-type" content="text/html; charset=UTF-8"/&gt;'''</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">get_root</span><span class="p">()</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="n">meta</span><span class="p">))</span>
+<span class="n">m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># https://stackoverflow.com/questions/50517620/django-and-folium-integration</span>
+
+<span class="n">html_head</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get_root</span><span class="p">()</span><span class="o">.</span><span class="n">header</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+<span class="n">html_body</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get_root</span><span class="p">()</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+<span class="n">html_scrt</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get_root</span><span class="p">()</span><span class="o">.</span><span class="n">script</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">html_head</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Salvar-o-mapa-em-HTML">Salvar o mapa em HTML<a class="anchor-link" href="#Salvar-o-mapa-em-HTML">¶</a></h1><p>A grande vantagem é salvar o mapa como um arquivo <em>.html</em>, bastante possivel para dar um <em>embed</em> em qualquer página. Para salvar o resultado em um dado local, criei uma função que pode contribuir, avaliando se determinadas pastas estão criadas e, em caso negativo, cria as mesmas. Em uma destas pastas que ficará salvo o arquivo <em>.html</em> criado</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'maps'</span><span class="p">]]</span>
 </pre></div>
 
     </div>
@@ -14426,8 +14564,13 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>O mapa em <em>.html</em>, que é possivel acessar por usando o <a title="Link do GitHack" href="https://raw.githack.com" target="_blank">**_githack.com_**</a>. conforme segue:</p>
-<iframe src="https://raw.githack.com/michelmetran/package_folium/master/maps/map.html" width="800" height="300" frameborder="0"></iframe>
+<p>O mapa em <em>.html</em>, que é possivel acessar por usando o <a title="Link do GitHack" href="https://raw.githack.com" target="_blank">***githack.com***</a>. conforme segue:</p>
+<p>Fiz a tentativa de usar o domínio <a href="https://raw.githubusercontent.com"><strong><em>raw.githubusercontent.com</em></strong></a> sem sucesso, que possibilita acessar diretamente, porém recebi a seguinte mensagem de erro ao tentar renderizar o conteúdo do <em>.html</em>.</p>
+
+<pre><code>Bloqueado pela diretiva X-Frame-Options
+Ocorreu um erro durante uma conexão com raw.githubusercontent.com.
+O Firefox impediu que esta página fosse carregada neste contexto porque a página tem uma política X-Frame-Options que não permite.</code></pre>
+<iframe src="https://rawcdn.githack.com/michelmetran/package_folium/master/maps/map.html" width="100%" height="500" frameborder="0"></iframe>
 </div>
 </div>
 </div>
