@@ -13084,12 +13084,13 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>O <a href="https://python-visualization.github.io/folium/index.html"><strong><em>Folium</em></strong></a> é um pacote que possibilita a criação de mapas <em>online</em>, facilitando a visualização dos dados manipulados no <em>Python</em> em um mapa que usa a biblioteca JavaScript <a href="https://leafletjs.com"><strong><em>Leaflet</em></strong></a>.</p>
-<p>A biblioteca possui vários conjuntos de blocos internos do OpenStreetMap, Mapbox e Stamen, além de suportar conjuntos de blocos customizados com as chaves da API Mapbox ou Cloudmade. <strong><em>Folium</em></strong> suporta sobreposições de imagem, vídeo, GeoJSON e TopoJSON.</p>
+<p>O <a href="https://python-visualization.github.io/folium/index.html"><strong><em>Folium</em></strong></a> é um pacote que possibilita a criação de mapas <em>online</em>, facilitando a visualização dos dados manipulados no <em>Python</em> em um mapa que usa a biblioteca JavaScript <a href="https://leafletjs.com"><strong><em>Leaflet</em></strong></a>. É possível inserir <em>basemaps</em>, <em>shapefiles</em>, arquivos <em>geojson</em> e <em>topojson</em>.</p>
 <div class="alert alert-warning">
 <b>OBSERVAÇÃO</b><br>
-    Esse <i>post</i> tem a finalidade de mostrar os comandos básicos e me deixar com uma "cola" rápida para meu uso cotidiano.<br>
-    Todas os códigos são exemplificativos e podem/devem ser alterados, indicando o nome dos arquivos e diretórios corretamente.
+    <ol>
+    <li>Esse <i>post</i> tem a finalidade de mostrar os comandos básicos e me deixar com uma "cola" rápida para meu uso cotidiano, apresentado em <i>site</i> <a href="https://michelmetran.github.io/" target="_blank"><i><b>michelmetran.github.io</b></i></a>.<br></li>
+    <li>Todas os códigos são exemplificativos e podem/devem ser alterados, indicando o nome dos arquivos e diretórios corretamente.</li>
+    </ol>
 </div><div class="alert alert-info">
 <b>INFORMAÇÃO</b><br>
     <ol>
@@ -13103,11 +13104,12 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Importando-Bibliotecas">Importando Bibliotecas<a class="anchor-link" href="#Importando-Bibliotecas">¶</a></h1><p>As bibliotecas básicas, ou <em>packages</em>, necessárias para criação do mapa são:</p>
+<h1 id="Importando-Bibliotecas">Importando Bibliotecas<a class="anchor-link" href="#Importando-Bibliotecas">¶</a></h1><p>As bibliotecas básicas (ou <em>packages</em>) necessárias para criação do mapa são:</p>
 <ul>
 <li>O <strong><em>Pandas</em></strong>, que tem a missão de trabalhar com dados, criar <em>subsets</em>, selecionar e filtros dados e;</li>
 <li>O <strong><em>Folium</em></strong>, que é a biblioteca que cria, na prática, o mapa!</li>
 </ul>
+<p>Diversos outros podem auxiliar, tais como <em>branca</em>, <em>geopandas</em>, <em>seaborn</em> etc.</p>
 
 </div>
 </div>
@@ -13121,6 +13123,8 @@ div#notebook {
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">folium</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">branca</span> <span class="k">as</span> <span class="nn">bc</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
 </pre></div>
@@ -13488,9 +13492,6 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 
 <span class="c1"># Data: Link to geojson</span>
 <span class="n">json_url</span> <span class="o">=</span> <span class="s1">'https://raw.githubusercontent.com/datasets/geo-boundaries-world-110m/master/countries.geojson'</span>
-
-<span class="c1"># Adiciona GeoJson</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">GeoJson</span><span class="p">(</span><span class="n">shp</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'Trajetos'</span><span class="p">)</span>
 
 <span class="c1"># Folium Object</span>
 <span class="n">folium</span><span class="o">.</span><span class="n">Choropleth</span><span class="p">(</span>
@@ -14112,18 +14113,12 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ver ipynb próprio</p>
 
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-
-    </div>
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">

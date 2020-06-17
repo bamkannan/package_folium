@@ -1,4 +1,6 @@
-requests==2.23.0
 geopandas==0.7.0
+requests==2.23.0
+seaborn==0.10.1
+branca==0.4.1
 pandas==1.0.4
 Pillow==7.1.2
