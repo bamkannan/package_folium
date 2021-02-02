@@ -12947,8 +12947,13 @@ ul.typeahead-list  > li > a.pull-right {
 /*# sourceMappingURL=style.min.css.map */
     </style>
 <style type="text/css">
-    .highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
+    pre { line-height: 125%; }
+td.linenos pre { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: #000000; background-color: #f0f0f0; padding-left: 5px; padding-right: 5px; }
+td.linenos pre.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
@@ -13134,6 +13139,19 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'data'</span><span class="p">,</span> <span class="s1">'docs'</span><span class="p">,</span> <span class="s1">'maps'</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Criando-um-mapa">Criando um mapa<a class="anchor-link" href="#Criando-um-mapa">¶</a></h1><p>Basta um par de coordenadas -- que pode ser obtida facilmente no <em>link</em> de qualquer endereço usando <a title="Link do Google Maps" href="https://www.google.com.br/maps" target="_blank">**_Google Maps_**</a> -- e um nível de zoom que o mapa já está criado.</p>
@@ -13156,6 +13174,10 @@ div#notebook {
     <span class="n">control_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>                     <span class="c1"># Define se terá barra de escala</span>
     <span class="c1">#width=400,</span>
     <span class="c1">#height=1500,</span>
+    <span class="c1">#min_lat=min_lat,</span>
+    <span class="c1">#max_lat=max_lat,</span>
+    <span class="c1">#min_lon=min_lon,</span>
+    <span class="c1">#max_lon=max_lon</span>
 <span class="p">)</span>
 </pre></div>
 
@@ -13177,7 +13199,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Lendo e filtrando dados</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'data/empresas.xz'</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">'data'</span><span class="p">,</span> <span class="s1">'empresas.xz'</span><span class="p">))</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'state'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'SP'</span><span class="p">]</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'city'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'SANTOS'</span><span class="p">]</span>
 
@@ -13304,7 +13326,9 @@ div#notebook {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Cria o mapa</span>
 <span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
     <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9619271</span><span class="p">,</span><span class="o">-</span><span class="mf">46.3427499</span><span class="p">],</span>
-    <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span>
+    <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+    <span class="c1">#width=767,</span>
+    <span class="c1">#height=460,</span>
 <span class="p">)</span>
 
 <span class="c1"># Cria cores para as tags</span>
@@ -13327,7 +13351,10 @@ div#notebook {
             <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">'latitude'</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">'longitude'</span><span class="p">]],</span>
             <span class="n">popup</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span>
             <span class="n">tooltip</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">'neighborhood'</span><span class="p">],</span>
-            <span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">'neighborhood'</span><span class="p">]],</span> <span class="n">icon</span><span class="o">=</span><span class="s1">'leaf'</span><span class="p">)</span>
+            <span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span>
+                <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">'neighborhood'</span><span class="p">]],</span>
+                <span class="n">icon</span><span class="o">=</span><span class="s1">'leaf'</span>
+            <span class="p">)</span>
         <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 
 <span class="c1"># Apresenta o mapa</span>
@@ -13362,7 +13389,7 @@ div#notebook {
         <span class="n">folium</span><span class="o">.</span><span class="n">CircleMarker</span><span class="p">(</span>
         <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">'latitude'</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">'longitude'</span><span class="p">]],</span>        
         <span class="n">radius</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-        <span class="n">popup</span><span class="o">=</span><span class="s1">'&lt;strong&gt;'</span><span class="o">+</span><span class="n">row</span><span class="p">[</span><span class="s1">'neighborhood'</span><span class="p">]</span><span class="o">+</span><span class="s1">'&lt;/strong&gt;'</span><span class="p">,</span>
+        <span class="n">popup</span><span class="o">=</span><span class="s1">'&lt;strong&gt;</span><span class="si">{}</span><span class="s1">&lt;/strong&gt;'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">'neighborhood'</span><span class="p">]),</span>
         <span class="n">tooltip</span><span class="o">=</span><span class="s1">'Dica'</span><span class="p">,</span>
         <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="c1">#fill_color='#428bca'</span>
@@ -13381,8 +13408,9 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Custom-Icon">Custom Icon<a class="anchor-link" href="#Custom-Icon">¶</a></h2><p><a href="https://www.w3schools.com/icons/default.asp">https://www.w3schools.com/icons/default.asp</a></p>
-<p><a href="https://fontawesome.com/v4.7.0/icons/">https://fontawesome.com/v4.7.0/icons/</a> (não funciona o 5.0)
-<a href="https://stackoverflow.com/questions/58607693/how-to-use-folium-icon-with-fontawesome">https://stackoverflow.com/questions/58607693/how-to-use-folium-icon-with-fontawesome</a></p>
+<p><a href="https://fontawesome.com/v4.7.0/icons/">https://fontawesome.com/v4.7.0/icons/</a> (não funciona o 5.0)</p>
+<p><a href="https://stackoverflow.com/questions/58607693/how-to-use-folium-icon-with-fontawesome">https://stackoverflow.com/questions/58607693/how-to-use-folium-icon-with-fontawesome</a></p>
+<p><a href="https://icons.getbootstrap.com/">https://icons.getbootstrap.com/</a></p>
 
 </div>
 </div>
@@ -13468,6 +13496,64 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 
 <span class="c1"># Apresenta o mapa</span>
 <span class="n">m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Cor">Cor<a class="anchor-link" href="#Cor">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">folium</span> 
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">branca</span> 
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">state_unemp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data/us_unemployment.csv"</span><span class="p">)</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">'https://raw.githubusercontent.com/python-visualization/folium/master/examples/data'</span>
+<span class="n">state_geo</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s1">/us-states.json'</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># https://medium.com/analytics-vidhya/create-and-visualize-choropleth-map-with-folium-269d3fd12fa0</span>
+<span class="n">unemployment_dict</span> <span class="o">=</span> <span class="n">state_unemp</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'State'</span><span class="p">)[</span><span class="s1">'Unemployment'</span><span class="p">]</span>
+<span class="n">geo_json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">state_geo</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="n">usa_step</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">([</span><span class="mi">48</span><span class="p">,</span> <span class="o">-</span><span class="mi">102</span><span class="p">],</span> <span class="n">tiles</span><span class="o">=</span><span class="s1">'cartodbpositron'</span><span class="p">,</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">folium</span><span class="o">.</span><span class="n">GeoJson</span><span class="p">(</span>
+    <span class="n">geo_json_data</span><span class="p">,</span>
+    <span class="n">style_function</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'fillColor'</span><span class="p">:</span> <span class="n">step</span><span class="p">(</span><span class="n">unemployment_dict</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]]),</span>
+        <span class="s1">'color'</span><span class="p">:</span> <span class="s1">'black'</span><span class="p">,</span>       <span class="c1">#border color for the color fills</span>
+        <span class="c1">#'weight': 1,            #how thick the border has to be</span>
+        <span class="c1">#'dashArray': '5, 3'  #dashed lines length,space between them</span>
+    <span class="p">}</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">usa_step</span><span class="p">)</span>
+<span class="n">step</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">usa_step</span><span class="p">)</span>     <span class="c1">#adds colorscale or legend</span>
+<span class="n">usa_step</span>
 </pre></div>
 
     </div>
@@ -13583,7 +13669,10 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">22</span><span class="p">,</span> <span class="o">-</span><span class="mi">55</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
+    <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">22</span><span class="p">,</span> <span class="o">-</span><span class="mi">55</span><span class="p">],</span>
+    <span class="n">zoom_start</span><span class="o">=</span><span class="mi">6</span>
+<span class="p">)</span>
 
 <span class="n">folium</span><span class="o">.</span><span class="n">raster_layers</span><span class="o">.</span><span class="n">WmsTileLayer</span><span class="p">(</span>
     <span class="n">url</span><span class="o">=</span><span class="s1">'http://datageo.ambiente.sp.gov.br/geoserver/ows?SERVICE=WMS&amp;'</span><span class="p">,</span>
@@ -13629,8 +13718,10 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 
 <span class="c1"># Map Object</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mi">48</span><span class="p">,</span> <span class="o">-</span><span class="mi">102</span><span class="p">],</span>
-               <span class="n">zoom_start</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
+    <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mi">48</span><span class="p">,</span> <span class="o">-</span><span class="mi">102</span><span class="p">],</span>
+    <span class="n">zoom_start</span><span class="o">=</span><span class="mi">3</span>
+<span class="p">)</span>
 
 <span class="c1"># Folium Object</span>
 <span class="n">folium</span><span class="o">.</span><span class="n">Choropleth</span><span class="p">(</span>
@@ -13867,10 +13958,11 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9619271</span><span class="p">,</span><span class="o">-</span><span class="mf">46.3427499</span><span class="p">],</span>
-               <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
-               <span class="n">tiles</span><span class="o">=</span><span class="kc">None</span><span class="p">,)</span>
-
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
+    <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9619271</span><span class="p">,</span><span class="o">-</span><span class="mf">46.3427499</span><span class="p">],</span>
+    <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+    <span class="n">tiles</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="n">folium</span><span class="o">.</span><span class="n">TileLayer</span><span class="p">(</span><span class="s1">'openstreetmap'</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="n">folium</span><span class="o">.</span><span class="n">TileLayer</span><span class="p">(</span><span class="s1">'stamentoner'</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="n">folium</span><span class="o">.</span><span class="n">TileLayer</span><span class="p">(</span><span class="s1">'stamenTerrain'</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
@@ -13904,10 +13996,11 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
     <span class="kn">import</span> <span class="nn">folium</span>
 
     <span class="c1"># Create Maps</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">location</span><span class="p">,</span>
-                   <span class="n">zoom_start</span><span class="o">=</span><span class="n">zoom_start</span><span class="p">,</span>
-                   <span class="n">tiles</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                   <span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
+        <span class="n">location</span><span class="o">=</span><span class="n">location</span><span class="p">,</span>
+        <span class="n">zoom_start</span><span class="o">=</span><span class="n">zoom_start</span><span class="p">,</span>
+        <span class="n">tiles</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="c1"># Read table with all tiles servers</span>
     <span class="c1">#df = pd.read_csv('data/tiles.csv', index_col=0)</span>
@@ -13917,22 +14010,17 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
     <span class="c1"># Filter some tiles</span>
     <span class="c1">#df = df[2:4]</span>
     <span class="c1">#df = df.loc[(df['name'] == 'ESRI Satelite') | (df['name'] == 'ESRI Street')]</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s1">'ESRI'</span><span class="p">))]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s1">'Google'</span><span class="p">))]</span>
 
     <span class="c1"># For</span>
     <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-        <span class="c1"># Create reference to attribution</span>
-        <span class="n">ref</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'&lt;a href="'</span> <span class="o">+</span>
-               <span class="n">row</span><span class="p">[</span><span class="s1">'attribution'</span><span class="p">]</span> <span class="o">+</span>
-               <span class="s1">'" target="blank"&gt;'</span> <span class="o">+</span>
-               <span class="n">row</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">+</span>
-               <span class="s1">'&lt;/a&gt;'</span><span class="p">)</span>
-
         <span class="c1"># Create multiples tiles layers</span>
-        <span class="n">folium</span><span class="o">.</span><span class="n">TileLayer</span><span class="p">(</span><span class="n">tiles</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">'link'</span><span class="p">],</span>
-                         <span class="n">attr</span><span class="o">=</span><span class="n">ref</span><span class="p">,</span>
-                         <span class="n">name</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span>
-                         <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+        <span class="n">folium</span><span class="o">.</span><span class="n">TileLayer</span><span class="p">(</span>
+            <span class="n">tiles</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">'link'</span><span class="p">],</span>
+            <span class="n">attr</span><span class="o">=</span><span class="p">(</span><span class="s1">'&lt;a href="</span><span class="si">{}</span><span class="s1">" target="blank"&gt;</span><span class="si">{}</span><span class="s1">&lt;/a&gt;'</span><span class="o">.</span>
+                  <span class="nb">format</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">'attribution'</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">'name'</span><span class="p">])),</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s1">'name'</span><span class="p">],</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 
     <span class="c1"># Results</span>
     <span class="k">return</span> <span class="n">m</span>
@@ -13948,10 +14036,12 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">create_map_multitiles</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9619271</span><span class="p">,</span> <span class="o">-</span><span class="mf">46.3427499</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">folium</span><span class="o">.</span><span class="n">LayerControl</span><span class="p">()</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">create_map_multitiles</span><span class="p">(</span>
+    <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9619271</span><span class="p">,</span> <span class="o">-</span><span class="mf">46.3427499</span><span class="p">],</span>
+    <span class="n">zoom_start</span><span class="o">=</span><span class="mi">10</span>
+<span class="p">)</span>
 
-<span class="n">m</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'maps/map.html'</span><span class="p">)</span>
+<span class="n">folium</span><span class="o">.</span><span class="n">LayerControl</span><span class="p">()</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
 <span class="n">m</span>
 </pre></div>
 
@@ -14080,7 +14170,20 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
     <span class="n">aliases</span><span class="o">=</span><span class="p">[</span><span class="s2">"SA1 code"</span><span class="p">,</span> <span class="s2">"category"</span><span class="p">],</span>
     <span class="n">sticky</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">opacity</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
-    <span class="n">direction</span><span class="o">=</span><span class="s2">"bottom"</span><span class="p">),</span>
+    <span class="n">direction</span><span class="o">=</span><span class="s2">"bottom"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span>
 </pre></div>
 
     </div>
@@ -14194,6 +14297,51 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Tamanho-do-Mapa">Tamanho do Mapa<a class="anchor-link" href="#Tamanho-do-Mapa">¶</a></h2><p><a href="https://github.com/python-visualization/folium/issues/37">https://github.com/python-visualization/folium/issues/37</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#f = folium.Figure(width=1920, height=1080)</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
+    <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9619271</span><span class="p">,</span><span class="o">-</span><span class="mf">46.3427499</span><span class="p">],</span>
+    <span class="n">tiles</span><span class="o">=</span><span class="s1">'Open Streetmap'</span><span class="p">,</span>
+    <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+    <span class="n">min_zoom</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Adiciona as diferentes empresas com cores por bairros</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">'neighborhood'</span><span class="p">]</span> <span class="ow">in</span> <span class="n">colors</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">folium</span><span class="o">.</span><span class="n">CircleMarker</span><span class="p">(</span>
+        <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">'latitude'</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">'longitude'</span><span class="p">]],</span>
+        <span class="n">radius</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">popup</span><span class="o">=</span><span class="s1">'&lt;strong&gt;'</span><span class="o">+</span><span class="n">row</span><span class="p">[</span><span class="s1">'neighborhood'</span><span class="p">]</span><span class="o">+</span><span class="s1">'&lt;/strong&gt;'</span><span class="p">,</span>
+        <span class="n">tooltip</span><span class="o">=</span><span class="s1">'Dica'</span><span class="p">,</span>
+        <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="c1">#fill_color='#428bca'</span>
+        <span class="n">fill_color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">'neighborhood'</span><span class="p">]]</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">fit_bounds</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_bounds</span><span class="p">())</span>
+
+<span class="n">m</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">'maps'</span><span class="p">,</span> <span class="s1">'map.html'</span><span class="p">))</span>
+<span class="n">m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Localização-Mouse">Localização Mouse<a class="anchor-link" href="#Localiza%C3%A7%C3%A3o-Mouse">¶</a></h2>
 </div>
 </div>
@@ -14242,11 +14390,74 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create Map</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">23.9619271</span><span class="p">,</span><span class="o">-</span><span class="mf">46.3427499</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">min_lat</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">max_lat</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">min_lon</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">max_lon</span><span class="o">=</span><span class="mi">0</span>
+</pre></div>
 
-<span class="n">m</span><span class="o">.</span><span class="n">fit_bounds</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_bounds</span><span class="p">())</span>
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create Map</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
+    <span class="c1">#location=[-23.9619271,-46.3427499],</span>
+    <span class="c1">#location=[-20,-50],</span>
+    <span class="c1">#zoom_start=10,</span>
+    <span class="n">min_lat</span><span class="o">=</span><span class="n">min_lat</span><span class="p">,</span>
+    <span class="n">max_lat</span><span class="o">=</span><span class="n">max_lat</span><span class="p">,</span>
+    <span class="n">min_lon</span><span class="o">=</span><span class="n">min_lon</span><span class="p">,</span>
+    <span class="n">max_lon</span><span class="o">=</span><span class="n">max_lon</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Adiciona as diferentes empresas com cores por bairros</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">'neighborhood'</span><span class="p">]</span> <span class="ow">in</span> <span class="n">colors</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">folium</span><span class="o">.</span><span class="n">CircleMarker</span><span class="p">(</span>
+        <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">'latitude'</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">'longitude'</span><span class="p">]],</span>
+        <span class="n">radius</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">popup</span><span class="o">=</span><span class="s1">'&lt;strong&gt;'</span><span class="o">+</span><span class="n">row</span><span class="p">[</span><span class="s1">'neighborhood'</span><span class="p">]</span><span class="o">+</span><span class="s1">'&lt;/strong&gt;'</span><span class="p">,</span>
+        <span class="n">tooltip</span><span class="o">=</span><span class="s1">'Dica'</span><span class="p">,</span>
+        <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="c1">#fill_color='#428bca'</span>
+        <span class="n">fill_color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">'neighborhood'</span><span class="p">]]</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+<span class="n">bounds</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">get_bounds</span><span class="p">()</span>
+<span class="c1">#m.fit_bounds(m.get_bounds())</span>
+<span class="c1">#m.fit_bounds((max_lat, max_lon), (min_lat, min_lon))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bounds</span><span class="p">)</span>
 <span class="n">m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">bounds</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">bounds</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">20</span><span class="o">/</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">bounds</span> <span class="o">=</span> <span class="n">bounds</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="c1">#m.fit_bounds(bounds)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bounds</span><span class="p">)</span>
+
+<span class="n">min_lat</span><span class="o">=</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">max_lat</span><span class="o">=</span><span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">min_lon</span><span class="o">=</span><span class="n">bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">max_lon</span><span class="o">=</span><span class="n">bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -14526,8 +14737,13 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Salvar-o-mapa-em-HTML">Salvar o mapa em HTML<a class="anchor-link" href="#Salvar-o-mapa-em-HTML">¶</a></h1><p>A grande vantagem é salvar o mapa como um arquivo <em>.html</em>, bastante possivel para dar um <em>embed</em> em qualquer página. Para salvar o resultado em um dado local, criei uma função que pode contribuir, avaliando se determinadas pastas estão criadas e, em caso negativo, cria as mesmas. Em uma destas pastas que ficará salvo o arquivo <em>.html</em> criado</p>
-
+<h1 id="Salva-Mapa">Salva Mapa<a class="anchor-link" href="#Salva-Mapa">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Em-png">Em <em>png</em><a class="anchor-link" href="#Em-png">¶</a></h2>
 </div>
 </div>
 </div>
@@ -14536,7 +14752,12 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'maps'</span><span class="p">]]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="n">img_data</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">_to_png</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">img_data</span><span class="p">))</span>
+<span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">'maps'</span><span class="p">,</span> <span class="s1">'map.png'</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -14544,12 +14765,19 @@ Para rabiscos aleatórios, anotações etc, é possivel criar o arquivo usando <
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Em-HTML">Em HTML<a class="anchor-link" href="#Em-HTML">¶</a></h2><p>A grande vantagem é salvar o mapa como um arquivo <em>.html</em>, bastante possivel para dar um <em>embed</em> em qualquer página. Para salvar o resultado em um dado local, criei uma função que pode contribuir, avaliando se determinadas pastas estão criadas e, em caso negativo, cria as mesmas. Em uma destas pastas que ficará salvo o arquivo <em>.html</em> criado</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'maps/map.html'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">'maps'</span><span class="p">,</span> <span class="s1">'map.html'</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -14577,6 +14805,10 @@ O Firefox impediu que esta página fosse carregada neste contexto porque a pági
 <li><a href="https://jtemporal.com/folium/">https://jtemporal.com/folium/</a></li>
 <li><a href="https://www.kaggle.com/rachan/how-to-folium-for-maps-heatmaps-time-analysis">https://www.kaggle.com/rachan/how-to-folium-for-maps-heatmaps-time-analysis</a></li>
 <li>Muitos exemplos de ipynb <a href="https://nbviewer.jupyter.org/github/python-visualization/folium/tree/master/examples/">https://nbviewer.jupyter.org/github/python-visualization/folium/tree/master/examples/</a></li>
+</ul>
+<h2 id="Explorar">Explorar<a class="anchor-link" href="#Explorar">¶</a></h2><ul>
+<li><a href="https://github.com/ArchaDoriya/Interactive-Choropleth-Map-in-Python-and-Folium">https://github.com/ArchaDoriya/Interactive-Choropleth-Map-in-Python-and-Folium</a></li>
+<li><a href="https://medium.com/analytics-vidhya/interactive-choropleth-map-in-python-using-folium-4e1479d9e568">https://medium.com/analytics-vidhya/interactive-choropleth-map-in-python-using-folium-4e1479d9e568</a></li>
 </ul>
 
 </div>

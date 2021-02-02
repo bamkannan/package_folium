@@ -23,3 +23,4 @@ O [***Folium***](https://python-visualization.github.io/folium/index.html) é um
     </ol>
 </div>
 
+<iframe src='docs/folium.html'>
